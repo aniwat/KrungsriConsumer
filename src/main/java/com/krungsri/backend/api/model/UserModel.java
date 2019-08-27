@@ -1,14 +1,19 @@
 package com.krungsri.backend.api.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-//@JsonPropertyOrder({ "name", "id" })
+@JsonPropertyOrder({ "id" })
 @JsonRootName(value = "user")
 public class UserModel {
 	
@@ -17,19 +22,50 @@ public class UserModel {
 	@JsonInclude(Include.NON_DEFAULT)
 	private int userId;
 	
+	@NotBlank(message = "username is required")
 	private String username;
+	
+	@NotBlank(message = "password is required")
 	private String password;
+	
+	@JsonInclude(Include.NON_NULL)
+	private String EncryptedPassword;
+	
+	@NotBlank(message = "firstname is required")
 	private String firstname;
+	
+	@NotBlank(message = "lastname is required")
 	private String lastname;
+	
+	@NotBlank(message = "address is required")
 	private String address;
+	
 	private String road;
+	
+	@NotBlank(message = "subDistrict is required")
 	private String subDistrict; // ตำบล, แขวง
+	
+	@NotBlank(message = "district is required")
 	private String district; // อำเภอ, เขต
+	
+	@NotBlank(message = "province is required")
 	private String province;
+	
+	@NotBlank(message = "zipcode is required")
 	private String zipcode;
+	
+	@NotBlank(message = "phoneNumber is required")
+	@Size(min = 10, max = 10)
 	private String phoneNumber;
+	
+	@JsonInclude(Include.NON_DEFAULT)
+	@DecimalMin(value = "15000.00", message = "Salary < 15,000")
 	private BigDecimal salary;
+	
 	private Date registeredAt;
+	
+	@JsonInclude(Include.NON_NULL)
+	private String memberType;
 	
 	@JsonInclude(Include.NON_NULL)
 	private String referenceCode;
@@ -38,12 +74,13 @@ public class UserModel {
 		super();
 	}
 	
-	public UserModel(int userId, String username, String password, String firstname, String lastname, String address, String road, String subDistrict, String district, String province, String zipcode,
-			String phoneNumber, BigDecimal salary, Date registeredAt, String referenceCode) {
+	public UserModel(int userId, String username, String password, String EncryptedPassword, String firstname, String lastname, String address, String road, String subDistrict, String district,
+			String province, String zipcode, String phoneNumber, BigDecimal salary, Date registeredAt, String memberType, String referenceCode) {
 		super();
 		this.userId = userId;
 		this.username = username;
 		this.password = password;
+		this.EncryptedPassword = EncryptedPassword;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.address = address;
@@ -55,6 +92,7 @@ public class UserModel {
 		this.phoneNumber = phoneNumber;
 		this.salary = salary;
 		this.registeredAt = registeredAt;
+		this.memberType = memberType;
 		this.referenceCode = referenceCode;
 	}
 	
@@ -80,6 +118,14 @@ public class UserModel {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getEncryptedPassword() {
+		return EncryptedPassword;
+	}
+	
+	public void setEncryptedPassword(String encryptedPassword) {
+		EncryptedPassword = encryptedPassword;
 	}
 	
 	public String getFirstname() {
@@ -170,12 +216,27 @@ public class UserModel {
 		this.registeredAt = registeredAt;
 	}
 	
+	public String getMemberType() {
+		return memberType;
+	}
+	
+	public void setMemberType(String memberType) {
+		this.memberType = memberType;
+	}
+	
 	public String getReferenceCode() {
 		return referenceCode;
 	}
 	
 	public void setReferenceCode(String referenceCode) {
 		this.referenceCode = referenceCode;
+	}
+	
+	@Override
+	public String toString() {
+		return "UserModel [userId=" + userId + ", username=" + username + ", password=" + password + ", EncryptedPassword=" + EncryptedPassword + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", address=" + address + ", road=" + road + ", subDistrict=" + subDistrict + ", district=" + district + ", province=" + province + ", zipcode=" + zipcode + ", phoneNumber="
+				+ phoneNumber + ", salary=" + salary + ", registeredAt=" + registeredAt + ", memberType=" + memberType + ", referenceCode=" + referenceCode + "]";
 	}
 	
 }
