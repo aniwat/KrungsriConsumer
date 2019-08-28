@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-@JsonPropertyOrder({ "id" })
 @JsonRootName(value = "user")
+@JsonPropertyOrder({ "id" })
 public class UserModel {
 	
 	// @JsonIgnore
@@ -74,8 +74,8 @@ public class UserModel {
 		super();
 	}
 	
-	public UserModel(int userId, String username, String password, String EncryptedPassword, String firstname, String lastname, String address, String road, String subDistrict, String district,
-			String province, String zipcode, String phoneNumber, BigDecimal salary, Date registeredAt, String memberType, String referenceCode) {
+	public UserModel(int userId, String username, String password, String EncryptedPassword, String firstname, String lastname, String address, String road, String subDistrict,
+	    String district, String province, String zipcode, String phoneNumber, BigDecimal salary, Date registeredAt, String memberType, String referenceCode) {
 		super();
 		this.userId = userId;
 		this.username = username;
@@ -234,9 +234,10 @@ public class UserModel {
 	
 	@Override
 	public String toString() {
-		return "UserModel [userId=" + userId + ", username=" + username + ", password=" + password + ", EncryptedPassword=" + EncryptedPassword + ", firstname=" + firstname + ", lastname=" + lastname
-				+ ", address=" + address + ", road=" + road + ", subDistrict=" + subDistrict + ", district=" + district + ", province=" + province + ", zipcode=" + zipcode + ", phoneNumber="
-				+ phoneNumber + ", salary=" + salary + ", registeredAt=" + registeredAt + ", memberType=" + memberType + ", referenceCode=" + referenceCode + "]";
+		return "UserModel [userId=" + userId + ", username=" + username + ", password=" + password + ", EncryptedPassword=" + EncryptedPassword + ", firstname=" + firstname
+		    + ", lastname=" + lastname + ", address=" + address + ", road=" + road + ", subDistrict=" + subDistrict + ", district=" + district + ", province=" + province + ", zipcode="
+		    + zipcode + ", phoneNumber=" + phoneNumber + ", salary=" + salary + ", registeredAt=" + registeredAt + ", memberType=" + memberType + ", referenceCode=" + referenceCode
+		    + "]";
 	}
 	
 }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d1e75347-2f28-4749-9a31-b5815c91528e",
+		"_postman_id": "8e719f8e-7023-48ef-88b6-000e4f931881",
 		"name": "KrungsriConsumer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"aniwat.k\",\r\n    \"password\": \"password\",\r\n    \"firstname\": \"Aniwat\",\r\n    \"lastname\": \"Keereena\",\r\n    \"address\": \"1398/416\",\r\n    \"road\": \"Ramkhamhaeng\",\r\n    \"subDistrict\": \"Suanluang\",\r\n    \"district\": \"Suanluang\",\r\n    \"province\": \"Bangkok\",\r\n    \"zipcode\": \"10250\",\r\n    \"phoneNumber\": \"0897285145\",\r\n    \"salary\": 50000.00\r\n}"
+					"raw": "{\r\n    \"username\": \"aniwat\",\r\n    \"password\": \"password\",\r\n    \"firstname\": \"Aniwat\",\r\n    \"lastname\": \"Keereena\",\r\n    \"address\": \"9/9\",\r\n    \"road\": \"Ramkhamhaeng\",\r\n    \"subDistrict\": \"Suanluang\",\r\n    \"district\": \"Suanluang\",\r\n    \"province\": \"Bangkok\",\r\n    \"zipcode\": \"10250\",\r\n    \"phoneNumber\": \"0891234567\",\r\n    \"salary\": 50000.00\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/user",

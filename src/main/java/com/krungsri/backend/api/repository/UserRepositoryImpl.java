@@ -1,6 +1,5 @@
 package com.krungsri.backend.api.repository;
 
-import java.util.Date;
 import java.util.HashMap;
 
 import com.krungsri.backend.api.model.UserModel;
